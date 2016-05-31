@@ -30,6 +30,7 @@ docker_swagger_editor_web_name: "swagger-editor.box.entwickl.de"
 
 ## Dependencies
 
+- `docker` should be installed and working (you can use the `elnebuloso.docker` role to install).
 - `apache2` should be installed and working (you can use the `elnebuloso.apache2` role to install).
 
 ##  License
