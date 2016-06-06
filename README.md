@@ -14,8 +14,9 @@ Available variables are listed below, along with default values (see `defaults/m
 docker_swagger_editor_state: "started"
 docker_swagger_editor_version: "v2.9.9"
 docker_swagger_editor_container_name: "swagger-editor"
-docker_swagger_editor_web_port: "49160"
-docker_swagger_editor_web_name: "swagger-editor.box.entwickl.de"
+docker_swagger_editor_container_port: "49160"
+docker_swagger_editor_proxy_name: "swagger-editor.box.entwickl.de"
+docker_swagger_editor_proxy_port: "80"
 ```
 
 ## Example Playbook
@@ -23,7 +24,7 @@ docker_swagger_editor_web_name: "swagger-editor.box.entwickl.de"
 ```
 - hosts: localhost
   vars:
-    docker_swagger_editor_web_name: "swagger-editor.box.entwickl.de"
+    docker_swagger_editor_proxy_name: "swagger-editor.box.entwickl.de"
   roles:
     - { role: elnebuloso.docker-swagger-editor }
 ```
@@ -31,7 +32,7 @@ docker_swagger_editor_web_name: "swagger-editor.box.entwickl.de"
 ## Dependencies
 
 - `docker` should be installed and working (you can use the `elnebuloso.docker` role to install).
-- `apache2` should be installed and working (you can use the `elnebuloso.apache2` role to install).
+- If Apache2 is installed, a proxy vhost will be configured.
 
 ##  License
 

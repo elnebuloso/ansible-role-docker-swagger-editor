@@ -1,0 +1,30 @@
+---
+
+# proxy check
+
+- name: check if apache2 exists
+  stat: path=/etc/init.d/apache2
+  register: docker_swagger_editor_apache2_exists
+
+# proxy vhost
+
+- name: enable apache2 proxy
+  apache2_module: state=present name={{item}}
+  with_items:
+    - proxy
+    - proxy_http
+  notify:
+    - docker_swagger_editor_apache2_restart
+  when: docker_swagger_editor_apache2_exists.stat.exists == true
+
+- name: create apache2 proxy vhost
+  template: src=vhost.conf dest=/etc/apache2/sites-available/100-docker-swagger-editor.conf
+  notify:
+    - docker_swagger_editor_apache2_restart
+  when: docker_swagger_editor_apache2_exists.stat.exists == true
+
+- name: enable apache2 proxy vhost
+  command: a2ensite 100-docker-swagger-editor.conf creates=/etc/apache2/sites-enabled/100-docker-swagger-editor.conf
+  notify:
+    - docker_swagger_editor_apache2_restart
+  when: docker_swagger_editor_apache2_exists.stat.exists == true
