@@ -1,5 +1,9 @@
 # changelog
 
+## 2.0.0
+
+- supporting ubuntu 16.04 xenial
+
 ## 1.1.0
 
 - os specific configuration
