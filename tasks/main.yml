@@ -16,7 +16,7 @@
 # docker container
 
 - name: install container
-  docker:
+  docker_container:
     name: "{{docker_swagger_editor_container_name}}"
     image: "swaggerapi/swagger-editor:{{docker_swagger_editor_version}}"
     state: "{{docker_swagger_editor_state}}"
