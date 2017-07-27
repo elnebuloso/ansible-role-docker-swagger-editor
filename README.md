@@ -8,25 +8,15 @@ This role requires Ansible 2.0 or higher, and platform requirements are listed i
 
 ## Role Variables
 
-Available variables are listed below, along with default values (see `defaults/main.yml`):
-
-```
-docker_swagger_editor_state: "started"
-docker_swagger_editor_version: "v2.9.9"
-docker_swagger_editor_container_name: "swagger-editor"
-docker_swagger_editor_container_port: "49160"
-docker_swagger_editor_proxy_name: "swagger-editor.box.entwickl.de"
-docker_swagger_editor_proxy_port: "80"
-```
+- [`defaults/main.yml`](https://github.com/elnebuloso/ansible-role-docker-swagger-editor/blob/master/defaults/main.yml)
 
 ## Example Playbook
 
 ```
 - hosts: localhost
-  vars:
-    docker_swagger_editor_proxy_name: "swagger-editor.box.entwickl.de"
   roles:
-    - { role: elnebuloso.docker-swagger-editor }
+    - role: elnebuloso.docker-swagger-editor
+      docker_swagger_editor_proxy_name: "swagger-editor.box.entwickl.de"
 ```
 
 ## Dependencies

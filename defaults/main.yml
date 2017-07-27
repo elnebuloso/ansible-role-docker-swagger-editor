@@ -1,7 +1,9 @@
 ---
-docker_swagger_editor_state: "started"
 docker_swagger_editor_version: "v2.9.9"
 docker_swagger_editor_container_name: "swagger-editor"
 docker_swagger_editor_container_port: "49160"
 docker_swagger_editor_proxy_name: "swagger-editor.box.entwickl.de"
 docker_swagger_editor_proxy_port: "80"
+docker_swagger_editor_pull: "no"
+docker_swagger_editor_state: "started"
+docker_swagger_editor_restart_policy: "always"

@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 
+## [2.3.0] - 2017-07-28
+### Added
+- docker_swagger_editor_pull: "no"
+- docker_swagger_editor_state: "started"
+- docker_swagger_editor_restart_policy: "always"
+
+
 ## [2.2.0] - 2017-04-22
 ### Changed
 - check server_base_os is defined

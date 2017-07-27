@@ -1,11 +1,9 @@
 ---
-- name: configure os
-  set_fact:
-    server_base_os: "{{ansible_distribution|lower}}{{ansible_distribution_major_version|int}}"
-
 - name: include os variables
-  include_vars: "{{server_base_os}}.yml"
-  when: server_base_os is defined and server_base_os != ""
+  include_vars: "{{docker_swagger_editor_os}}.yml"
+  when: docker_swagger_editor_os is defined and docker_swagger_editor_os != ""
+
+################################################################################################
 
 # define os variables
 
@@ -14,18 +12,24 @@
     docker_swagger_editor_apache2_restart_command: "{{__docker_swagger_editor_apache2_restart_command}}"
   when: docker_swagger_editor_apache2_restart_command is not defined
 
+################################################################################################
+
 # docker container
 
 - name: install container
   docker_container:
     name: "{{docker_swagger_editor_container_name}}"
     image: "swaggerapi/swagger-editor:{{docker_swagger_editor_version}}"
+    pull: "{{docker_swagger_editor_pull}}"
     state: "{{docker_swagger_editor_state}}"
+    restart_policy: "{{docker_swagger_editor_restart_policy}}"
     ports:
       - "{{docker_swagger_editor_container_port}}:8080"
 
+################################################################################################
+
 # setup os
 
-- name: setup {{server_base_os}}
-  include: "{{server_base_os}}.yml"
-  when: server_base_os is defined and server_base_os != ""
+- name: setup {{docker_swagger_editor_os}}
+  include: "{{docker_swagger_editor_os}}.yml"
+  when: docker_swagger_editor_os is defined and docker_swagger_editor_os != ""
