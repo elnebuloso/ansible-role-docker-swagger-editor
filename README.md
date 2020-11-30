@@ -1,6 +1,6 @@
 # Ansible Role - Swagger Editor for Docker
 
-[![Build Status](https://travis-ci.org/elnebuloso/ansible-role-docker-swagger-editor.svg?branch=master)](https://travis-ci.org/elnebuloso/ansible-role-docker-swagger-editor)
+![abandoned](https://img.shields.io/badge/project-abandoned-red)
 
 ## Requirements
 
